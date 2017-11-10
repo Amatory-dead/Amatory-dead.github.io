@@ -1,0 +1,405 @@
+@font-face {
+	font-family: 'HirukoPro-Med';
+	src: url('../../fonts/351BDB_0_0.eot');
+	src: url('../../fonts/351BDB_0_0.eot?#iefix') format('embedded-opentype'),
+		url('../../fonts/351BDB_0_0.woff2') format('woff2'),
+		url('../../fonts/351BDB_0_0.woff') format('woff'),
+		url('../../fonts/351BDB_0_0.ttf') format('truetype');
+}
+
+body {
+	position: relative;
+}
+
+h2 {
+	position: relative;
+	padding-top: 36px;
+	margin-bottom: 23px;
+	font-size: 46px;
+	line-height: 1.2;
+	font-weight: 800;
+	&:before {
+		content: '';
+		position: absolute;
+		top: 1px;
+		left: 0;
+		width: 80px;
+		height: 4px;
+		background-color: $body-color;
+	}
+}
+
+p {
+	font-size: 18px;
+	font-weight: 100;
+	margin-bottom: 0.7rem;
+}
+
+.flex-center {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.in {
+	opacity: 1 !important;
+}
+
+.hidden {
+	display: none;
+}
+
+.page-block {
+	position: relative;
+	min-height: 100vh;
+}
+
+@include media-breakpoint-down(lg) {
+	.container {
+		padding-left: 10px;
+		padding-right: 10px;
+	}
+}
+
+#side-nav {
+	position: fixed;
+	right: 36px;
+	top: 50%;
+	z-index: 22;
+	height: 72px;
+	margin-top: -36px;
+	a {
+		display: block;
+		width: 12px;
+		height: 12px;
+		border: 1px solid #4fe2c2;
+		border-radius: 100%;
+		+ a {
+			margin-top: 18px;
+		}
+		&.active {
+			background-color: #4fe2c2;	
+		}
+	}
+	&.theme-dark {
+		a {
+			border-color: $body-color;
+			&.active {
+				background-color: $body-color;
+			}
+		}
+	}
+	&.theme-light {
+		a {
+			border-color: $white;
+			&.active {
+				background-color: $white;
+			}
+		}
+	}
+}
+
+@include media-breakpoint-down(lg) {
+	#side-nav {
+		display: none;
+	}
+}
+
+#main-block {
+	background-color: $black;
+	padding: 30px 0;
+	.inner-block {
+		position: relative;
+		z-index: 9;
+		min-height: 100vh;
+	}
+	.lang-block {
+		position: absolute;
+		top: 0;
+		right: 0;
+		display: flex;
+		opacity: 0;
+		background: url('../../img/lang.png') center no-repeat;
+		a {
+			width: 35px;
+			height: 30px;
+			font-size: 12px;
+			text-decoration: none;
+			&:first-child {
+				color: $body-color;
+			}
+			&:last-child {
+				color: #3aa899;
+			}
+		}
+	}
+	.logo {
+		margin-bottom: 5px;
+	}
+	.main-wrapper {
+		display: none;
+	}
+	.subtitle {
+		margin-bottom: 65px;
+		color: #24c8c6;
+		font-size: 24px;
+		letter-spacing: 0.08em;
+		opacity: 0;
+	}
+	.btn-get {
+		width: 100%;
+		max-width: 370px;
+		height: 60px;
+		margin-bottom: 58px;
+		background: linear-gradient( to right, rgb(80,227,194), rgb(35,200,198));
+		font-size: 26px;
+		border: none;
+		border-radius: 30px;
+		outline: none;
+		cursor: pointer;
+		opacity: 0;
+	}
+	.arrow-down {
+		width: 30px;
+		height: 16px;
+		cursor: pointer;
+		opacity: 0;
+		svg {
+			fill: #4fe2c2;
+		}
+	}
+}
+
+@include media-breakpoint-down(lg) {
+	#main-block {
+		.lang-block {
+			right: 30px;
+		}
+	}
+}
+
+#calc-block {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	width: 350px;
+	margin-bottom: 90px;
+	opacity: 0;
+	.calc-item {
+		width: 130px;
+		color: $white;
+		font-weight: 100;
+		border: 2px solid rgba($white, .15);
+		border-radius: 4px;
+	}
+	.calc-header {
+		position: relative;
+		height: 64px;
+		background-color: rgba($white, .15);
+		font-size: 30px;
+		text-transform: uppercase;
+		&:before {
+			content: '';
+			position: absolute;
+			left: 0;
+			top: 0;
+			right: 0;
+			height: 32px;
+			background: url('../../img/calc-shadow.png') center bottom repeat-x;
+
+		}
+	}
+	.calc-body {
+		height: 60px;
+		.value {
+			width: 100%;
+			border: none;
+			outline: none !important;
+			font-size: 30px;
+			font-weight: 100;
+			color: $white;
+			text-align: center;
+			background-color: transparent;
+		}
+	}
+	.equal {
+		width: 15px;
+		height: 11px;
+		border-top: 2px solid #3a536d;
+		border-bottom: 2px solid #3a536d;
+	}
+}
+
+#unit {
+	position: relative;
+	.nav-arrow {
+		position: absolute;
+		left: 50%;
+		margin-left: -8px;
+		width: 16px;
+		height: 9px;
+		cursor: pointer;
+		svg {
+			width: 100%;
+			fill: #53687e;
+		}
+	}
+	.nav-arrow-up {
+		top: -19px;
+	}
+	.nav-arrow-down {
+		bottom: -19px;
+	}
+
+	.scale-block {
+		position: absolute;
+		right: -12px;
+		top: 0;
+		bottom: 0;
+	}
+	.scale-scroll {
+		height: 0;
+		width: 4px;
+		border-radius: 2px;
+		background-color: #53687e;
+	}
+}
+
+#calc-odometer {
+	font-size: 30px;
+	.odometer-value {	
+		font-family: $font-family-sans-serif;
+		font-weight: 100;
+	}
+	.odometer-formatting-mark {
+		display: none;
+	}
+}
+
+#curve-animation {
+	overflow: hidden;
+	position: absolute;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 2;
+	transition: opacity 7s ease-in-out;
+	opacity: 0;
+	&.animate {
+		opacity: 1;
+	}
+	&:after {
+		content: '';
+		height: 100%;
+		left: 0;
+		opacity: .7;
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+	&::after {
+		background: radial-gradient( circle at top, #061d34, #07233f);
+	}
+}
+
+#about-block {
+	padding-top: 68px;
+	.section-one {
+		margin-bottom: 64px;
+	}
+	.section-two {
+		margin-bottom: 41px;
+	}
+}
+
+#about-carousel {
+	margin-bottom: 33px;
+	.owl-stage-outer {
+		box-shadow: 3.536px 3.536px 20px 0px rgba($black, .3);	
+	}
+}
+
+#choose-carousel-nav {
+	margin-left: 7px;
+	margin-right: 7px;
+}
+
+#choose-block {
+	padding-top: 48px;
+	padding-bottom: 7px;
+	background-color: #4fe2c2;
+	.section-one {
+		margin-bottom: 40px;
+	}
+}
+
+#choose-carousel {
+	margin-bottom: 33px;
+	.owl-stage-outer {
+		box-shadow: 3.536px 3.536px 20px 0px rgba($black, .3);	
+	}
+	/*.item {
+		height: 290px;
+		background-size: contain;
+	}*/
+}
+
+#choose-carousel-nav {
+	max-width: 323px;
+	.circle {
+		background-color: #4fe2c2;
+	}
+}
+
+footer {
+	background-color: #141414;
+	.container {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 210px;
+		color: #646464;
+	}
+	.footer-logo {
+		margin-bottom: 5px;
+	}
+	.footer-copyright {
+		font-size: 13px;
+		font-weight: 100;
+	}
+	.footer-link {
+		min-width: 120px;
+		height: 30px;
+		border-radius: 15px;
+		color: #4fe2c2;
+		border: 1px solid #4fe2c2;
+		font-size: 12px;
+		text-transform: uppercase;
+		text-decoration: none;
+		+ .footer-link {
+			margin-left: 20px;
+		}
+	}
+}
+
+@include media-breakpoint-down(lg) {
+	footer {
+		.container {
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		.footer-left {
+			order: 2;
+		}
+	}
+}
+
+
+.lang-jp {
+	#main-block {
+		.subtitle {
+			font-size: 20px;
+		}
+	}
+}
