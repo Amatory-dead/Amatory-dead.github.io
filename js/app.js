@@ -48,11 +48,19 @@ function onWindowResize() {
     renderer.setSize(window.innerWidth, window.innerHeight);
 }
 
+var sound_short_started = false;
+var sound_long_started = false;
+
 function animateGrad() {
 
     $('#curve-animation').addClass('animate');
 
-    $('.player_short')[0].play();
+    if (!sound_short_started) {
+        sound_short_started = true;
+        var sound_short = new Audio('sound/short.mp3'); 
+        sound_short.play();
+    }
+    // $('.player_short')[0].play();
 
     $('.logo > svg').one(animationEnd, function(e){
         delay(function(){
@@ -61,7 +69,16 @@ function animateGrad() {
                 'margin-top': -1 * h,
             }, 1000, function(){
 
-                $('.player_long')[0].play();
+                if (!sound_long_started) {
+                    sound_long_started = true;
+                    var sound_long = new Audio('sound/long.mp3'); 
+                    sound_long.play();
+                    sound_long.addEventListener('ended', function() {
+                        sound_long.currentTime = 0;
+                        sound_long.play();
+                    }, false);
+                }
+                // $('.player_long')[0].play();
 
                 $('.main-wrapper').show();
                 $('.logo').css('margin-top', 0);

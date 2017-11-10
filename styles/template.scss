@@ -9,6 +9,7 @@
 
 body {
 	position: relative;
+	-webkit-text-size-adjust: 100%;
 }
 
 h2 {
@@ -138,6 +139,7 @@ p {
 	}
 	.main-wrapper {
 		display: none;
+		text-align: center;
 	}
 	.subtitle {
 		margin-bottom: 65px;
@@ -145,12 +147,16 @@ p {
 		font-size: 24px;
 		letter-spacing: 0.08em;
 		opacity: 0;
+
+		@media screen and (max-width: 360px) {
+			font-size: 18px;
+		}
 	}
 	.btn-get {
 		width: 100%;
 		max-width: 370px;
 		height: 60px;
-		margin-bottom: 58px;
+		margin-bottom: 48px;
 		background: linear-gradient( to right, rgb(80,227,194), rgb(35,200,198));
 		font-size: 26px;
 		border: none;
@@ -158,6 +164,7 @@ p {
 		outline: none;
 		cursor: pointer;
 		opacity: 0;
+		text-align: center;
 	}
 	.arrow-down {
 		width: 30px;
@@ -227,6 +234,10 @@ p {
 		height: 11px;
 		border-top: 2px solid #3a536d;
 		border-bottom: 2px solid #3a536d;
+	}
+
+	@media screen and (max-width: 360px) {
+		width: 300px;
 	}
 }
 
@@ -380,8 +391,19 @@ footer {
 		+ .footer-link {
 			margin-left: 20px;
 		}
+
+		@media screen and (max-width: 380px) {
+			min-width: 96px;
+			font-size: 10px;
+
+			+ .footer-link {
+				margin-left: 10px;
+			}
+		}
 	}
 }
+
+
 
 @include media-breakpoint-down(lg) {
 	footer {
