@@ -237,6 +237,10 @@ var units = [
 
 $(function(){
 
+    if(!!navigator.userAgent.match(/firefox/i)) {
+        $('body').addClass('mozilla');
+    }
+
     var owlConfig = {
         items:1,
         margin: 0,
